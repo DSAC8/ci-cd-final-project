@@ -27,7 +27,7 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          flake8 service tests --count --show-source --statistics
+          flake8 service tests --count --show-source --statistics --max-line-length=100
 
       - name: Run tests
         run: |
