@@ -1,5 +1,5 @@
 
-name: CI Workflow
+name: CI workflow
 
 on:
   push:
@@ -10,15 +10,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    container: python:3.9-slim
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
@@ -33,4 +29,3 @@ jobs:
       - name: Run unit tests with nose
         run: |
           nosetests -v --with-spec --spec-color --with-coverage --cover-package=service
-
